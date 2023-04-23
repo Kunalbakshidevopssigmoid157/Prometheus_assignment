@@ -1,0 +1,18 @@
+version: '3'
+services:
+  prometheus:
+    image: ubuntu/prometheus:2.33-22.04_edge
+    ports:
+      - 9090:9090
+    volumes:
+      - /var/lib/docker/volumes/kunal/_data/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+  
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - 9100:9100
